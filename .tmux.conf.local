@@ -437,6 +437,8 @@ tmux_conf_uninstall_plugins_on_reload=true
 # "$@"
 # # /!\ do not remove the previous line
 bind -n C-k send-keys C-k \; run 'sleep 0.2' \; clear-history
+# synchronize inputs in multi-panes
+bind-key i setw synchronize-panes
 
 run-shell ~/.tmux/my_plugins/tmux-resurrect/resurrect.tmux
 run-shell ~/.tmux/my_plugins/tmux-continuum/continuum.tmux
