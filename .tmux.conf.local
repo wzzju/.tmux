@@ -440,5 +440,10 @@ bind -n C-k send-keys C-k \; run 'sleep 0.2' \; clear-history
 # synchronize inputs in multi-panes
 bind-key i setw synchronize-panes
 
+# Solve the issue where selected text cannot be copied and pasted when using iTerm2 and multiple SSH remote terminal tmux sessions.
+# set -g set-clipboard on
+# set -ag terminal-overrides ",*:Ms=\\E]52;c;%p2%s\\7"
+# bind-key -T copy-mode-vi MouseDragEnd1Pane send-keys -X copy-pipe-and-cancel "sh -c 'printf \"\\033]52;c;$(cat | base64 | tr -d \"\\n\")\\a\" > $(tmux display-message -p \"#{client_tty}\")'"
+
 run-shell ~/.tmux/my_plugins/tmux-resurrect/resurrect.tmux
 run-shell ~/.tmux/my_plugins/tmux-continuum/continuum.tmux
