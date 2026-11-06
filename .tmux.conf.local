@@ -447,3 +447,7 @@ bind-key i setw synchronize-panes
 
 run-shell ~/.tmux/my_plugins/tmux-resurrect/resurrect.tmux
 run-shell ~/.tmux/my_plugins/tmux-continuum/continuum.tmux
+
+# BotMux Codex 输入框配色：仅作用于 socket 名为 botmux 的 tmux 服务。
+# 显式默认颜色供 Codex 启动时探测；important 防止主题随后覆盖。
+set -gwF window-style '#{?#{==:#{b:socket_path},botmux},fg=#eeeeee bg=#000000,#{window-style}}' #!important
